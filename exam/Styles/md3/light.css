@@ -1,3 +1,26 @@
+:root {
+    /* Material You Material Design 3 默认颜色系统 */
+    --md3-primary: #1976D2;
+    --md3-onPrimary: #FFFFFF;
+    --md3-primaryContainer: #E3F2FD;
+    --md3-onPrimaryContainer: #0D47A1;
+    --md3-secondary: #1565C0;
+    --md3-onSecondary: #FFFFFF;
+    --md3-secondaryContainer: #BBDEFB;
+    --md3-onSecondaryContainer: #0D47A1;
+    --md3-background: #FFFFFF;
+    --md3-onBackground: #0D47A1;
+    --md3-surface: #FFFFFF;
+    --md3-onSurface: #0D47A1;
+    --md3-outline: #BBDEFB;
+    --md3-outlineVariant: #E3F2FD;
+    /* 浅色背景 */
+    --md3-lightBg: #F0F7FF;
+    --md3-containerBg: #EAF6FF;
+    /* Modal 背景遮罩（浅色模式） */
+    --md3-modal-overlay: rgba(25, 118, 210, 0.15);
+}
+
 #return-btn {
     position: absolute; /* 绝对定位 */
     top: 20px; /* 距离顶部 20px */
@@ -5,8 +28,8 @@
     padding: 12px 24px; /* 内边距 */
     font-size: 1rem; /* 字体大小 */
     cursor: pointer; /* 鼠标悬停时显示为手型 */
-    background-color: #E3F2FD; /* 浅蓝色 */
-    color: #0D47A1; /* 深蓝色文字 */
+    background-color: var(--md3-primaryContainer); /* 浅蓝色 */
+    color: var(--md3-onPrimaryContainer); /* 深蓝色文字 */
     border: none; /* 按钮边框样式 */
     border-radius: 20px; /* 按钮圆角大小 */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* 按钮阴影 */
@@ -15,7 +38,7 @@
 }
 
 #return-btn:hover {
-    background-color: #90CAF9; /* 悬停时浅蓝色 */
+    background-color: var(--md3-outline); /* 悬停时浅蓝色 */
     transform: translateY(-1px); /* 悬停时向上移动 1px */
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* 悬停时的阴影效果 */
 }
@@ -24,8 +47,8 @@ body {
     font-family: 'Roboto', 'HarmonyOS Sans SC', sans-serif;
     margin: 0;
     padding: 0;
-    background: #EAF6FF; /* 整体背景淡蓝色 */
-    color: #0D47A1;
+    background: var(--md3-containerBg); /* 整体背景淡蓝色 */
+    color: var(--md3-onBackground);
     overflow: auto;
 }
 
@@ -47,8 +70,8 @@ body::-webkit-scrollbar {
     padding: 12px 24px;
     font-size: 1rem;
     cursor: pointer;
-    background-color: #E3F2FD;
-    color: #0D47A1;
+    background-color: var(--md3-primaryContainer);
+    color: var(--md3-onPrimaryContainer);
     border: none;
     border-radius: 20px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -79,7 +102,7 @@ body::-webkit-scrollbar {
 }
 
 #fullscreen-btn:hover, #settings-btn:hover, #reminder-settings-btn:hover {
-    background-color: #90CAF9;
+    background-color: var(--md3-outline);
     transform: translateY(-1px);
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
@@ -88,7 +111,7 @@ body::-webkit-scrollbar {
     padding: 24px;
     max-width: 1400px;
     margin: auto;
-    background-color: #F0F7FF;
+    background-color: var(--md3-lightBg);
     border-radius: 28px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -98,7 +121,7 @@ h1 {
     font-weight: 400;
     text-align: left;
     margin-bottom: 16px;
-    color: #0D47A1;
+    color: var(--md3-onPrimaryContainer);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -107,13 +130,13 @@ h1 {
 #room {
     font-size: 3.5rem;
     font-weight: 400;
-    color: #0D47A1;
+    color: var(--md3-onPrimaryContainer);
     margin-left: 20px;
 }
 
 #message {
     font-size: 1.8rem;
-    color: #1976D2;
+    color: var(--md3-primary);
     margin-bottom: 24px;
 }
 
@@ -138,7 +161,7 @@ h1 {
 }
 
 .clock-section, .info-section, .right-column {
-    background-color: #FFFFFF;
+    background-color: var(--md3-surface);
     padding: 24px;
     border-radius: 28px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -151,7 +174,7 @@ h1 {
 #current-time {
     font-size: 8rem;
     text-align: center;
-    color: #1976D2;
+    color: var(--md3-primary);
     margin: 0;
     font-weight: 400;
 }
@@ -160,14 +183,14 @@ h1 {
     font-size: 3rem;
     margin: 16px 0;
     text-align: left;
-    color: #0D47A1;
+    color: var(--md3-onPrimaryContainer);
 }
 
 #paper-info {
     font-size: 3rem;
     margin: 16px 0;
     text-align: left;
-    color: #0D47A1;
+    color: var(--md3-onPrimaryContainer);
 }
 
 #exam-papers, #answer-sheets {
@@ -179,7 +202,7 @@ table {
     border-collapse: separate;
     border-spacing: 0;
     margin-top: 24px;
-    background-color: #FFFFFF;
+    background-color: var(--md3-surface);
     border-radius: 16px;
     overflow: hidden;
 }
@@ -188,17 +211,17 @@ th, td {
     padding: 1px;
     font-size: 1.8rem;
     text-align: center;
-    border-bottom: 1px solid #BBDEFB;
+    border-bottom: 1px solid var(--md3-outline);
 }
 
 th {
-    background-color: #BBDEFB;
-    color: #0D47A1;
+    background-color: var(--md3-secondary);
+    color: var(--md3-onSecondary);
     font-weight: 500;
 }
 
 tr:hover {
-    background-color: #E3F2FD;
+    background-color: var(--md3-primaryContainer);
 }
 
 .exam-status-tag {
@@ -209,23 +232,23 @@ tr:hover {
 }
 
 .exam-status-进行中 {
-    background-color: #B3E5FC;
-    color: #01579B;
+    background-color: var(--md3-tertiaryContainer, #B3E5FC);
+    color: var(--md3-onTertiary, #01579B);
 }
 
 .exam-status-即将开始 {
-    background-color: #E1F5FE;
-    color: #0277BD;
+    background-color: var(--md3-secondaryContainer, #E1F5FE);
+    color: var(--md3-onSecondary, #0277BD);
 }
 
 .exam-status-已结束 {
-    background-color: #B0BEC5;
-    color: #263238;
+    background-color: var(--md3-surfaceVariant, #B0BEC5);
+    color: var(--md3-onSurfaceVariant, #263238);
 }
 
 .exam-status-未开始 {
-    background-color: #E3F2FD;
-    color: #0D47A1;
+    background-color: var(--md3-primaryContainer, #E3F2FD);
+    color: var(--md3-onPrimaryContainer, #0D47A1);
 }
 
 #settings-modal {
@@ -236,12 +259,13 @@ tr:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(33, 150, 243, 0.15);
+    /* 使用 CSS 变量，浅色背景基于 primary 颜色 */
+    background-color: rgba(25, 118, 210, 0.15);
     backdrop-filter: blur(8px);
 }
 
 #settings-modal-content {
-    background: #FFFFFF;
+    background: var(--md3-surface);
     padding: 32px 48px 32px 32px;
     margin: 32px auto;
     border-radius: 28px;
@@ -261,18 +285,18 @@ tr:hover {
 }
 
 #settings-modal-content::-webkit-scrollbar-thumb {
-    background: #BBDEFB;
+    background: var(--md3-outline);
     border-radius: 8px;
-    border: 2px solid #FFFFFF;
+    border: 2px solid var(--md3-surface);
 }
 
 #settings-modal-content::-webkit-scrollbar-thumb:hover {
-    background: #90CAF9;
+    background: var(--md3-secondary);
 }
 
 #settings-modal-content h3 {
     margin: 0 0 24px;
-    color: #0D47A1;
+    color: var(--md3-onPrimaryContainer);
     font-size: 24px;
     font-weight: 400;
 }
@@ -283,27 +307,28 @@ tr:hover {
     gap: 16px;
     margin: 16px 0;
     font-size: 16px;
-    color: #0D47A1;
+    color: var(--md3-onPrimaryContainer);
 }
 
 #settings-modal-content input[type="number"],
-#settings-modal-content input[type="text"] {
+#settings-modal-content input[type="text"],
+#settings-modal-content input[type="color"] {
     font-size: 1.8rem;
     padding: 12px 16px;
     margin: 8px 0 24px;
     width: 100%;
     box-sizing: border-box;
-    border: 2px solid #BBDEFB;
+    border: 2px solid var(--md3-outline);
     border-radius: 12px;
-    background-color: #FFFFFF;
-    color: #0D47A1;
+    background-color: var(--md3-surface);
+    color: var(--md3-onPrimaryContainer);
     transition: all 0.2s ease;
 }
 
 #settings-modal-content input:focus {
     outline: none;
-    border-color: #1976D2;
-    background-color: #E3F2FD;
+    border-color: var(--md3-primary);
+    background-color: var(--md3-primaryContainer);
 }
 
 .button-group {
@@ -312,9 +337,9 @@ tr:hover {
     gap: 16px;
     margin-top: 32px;
     position: relative;
-    background-color: #FFFFFF;
+    background-color: var(--md3-surface);
     padding: 16px 0;
-    border-top: 1px solid #BBDEFB;
+    border-top: 1px solid var(--md3-outline);
 }
 
 #save-settings-btn, #close-settings-btn {
@@ -347,13 +372,13 @@ tr:hover {
 }
 
 #save-settings-btn {
-    background-color: #1976D2;
-    color: #FFFFFF;
+    background-color: var(--md3-primary);
+    color: var(--md3-onPrimary);
 }
 
 #close-settings-btn {
-    background-color: #E3F2FD;
-    color: #0D47A1;
+    background-color: var(--md3-primaryContainer);
+    color: var(--md3-onPrimaryContainer);
 }
 
 #save-settings-btn:hover, #close-settings-btn:hover {
@@ -390,7 +415,7 @@ tr:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #BBDEFB;
+    background-color: var(--md3-outline, #BBDEFB);
     transition: .3s;
     border-radius: 16px;
 }
@@ -402,31 +427,31 @@ tr:hover {
     width: 24px;
     left: 4px;
     bottom: 4px;
-    background-color: #FFFFFF;
+    background-color: var(--md3-surface, #FFFFFF);
     transition: .3s;
     border-radius: 50%;
 }
 
 input:checked + .slider {
-    background-color: #1976D2;
+    background-color: var(--md3-primary, #1976D2);
 }
 
 input:checked + .slider:before {
     transform: translateX(20px);
-    background-color: #FFFFFF;
+    background-color: var(--md3-onPrimary, #FFFFFF);
 }
 
 .config-file-container {
     margin: 24px 0;
     padding: 24px;
-    border: 2px solid #BBDEFB;
+    border: 2px solid var(--md3-outline, #BBDEFB);
     border-radius: 20px;
-    background-color: #F0F7FF;
+    background-color: var(--md3-primaryContainer, #F0F7FF);
     transition: all 0.2s ease;
 }
 
 .config-file-container:hover {
-    border-color: #1976D2;
+    border-color: var(--md3-primary, #1976D2);
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
@@ -435,10 +460,10 @@ input:checked + .slider:before {
     width: auto;
     box-sizing: border-box;
     padding: 12px;
-    border: 2px dashed #BBDEFB;
+    border: 2px dashed var(--md3-outline, #BBDEFB);
     border-radius: 16px;
-    background-color: #FFFFFF;
-    color: #0D47A1;
+    background-color: var(--md3-surface, #FFFFFF);
+    color: var(--md3-onPrimaryContainer, #0D47A1);
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -446,8 +471,8 @@ input:checked + .slider:before {
 .config-file-container input[type="file"]::-webkit-file-upload-button {
     padding: 8px 16px;
     margin-right: 12px;
-    background-color: #E3F2FD;
-    color: #0D47A1;
+    background-color: var(--md3-primaryContainer, #E3F2FD);
+    color: var(--md3-onPrimaryContainer, #0D47A1);
     border: none;
     border-radius: 12px;
     cursor: pointer;
@@ -455,21 +480,21 @@ input:checked + .slider:before {
 }
 
 .config-file-container input[type="file"]::-webkit-file-upload-button:hover {
-    background-color: #90CAF9;
+    background-color: var(--md3-secondary, #90CAF9);
 }
 
 .file-hint {
     margin-top: 12px;
     font-size: 14px;
-    color: #1976D2;
+    color: var(--md3-primary, #1976D2);
     line-height: 1.5;
 }
 
 .config-control-btn {
     margin-top: 20px;
     padding: 12px 28px;
-    background-color: #E3F2FD;
-    color: #0D47A1;
+    background-color: var(--md3-primaryContainer, #E3F2FD);
+    color: var(--md3-onPrimaryContainer, #0D47A1);
     border: none;
     border-radius: 24px;
     cursor: pointer;
@@ -482,7 +507,7 @@ input:checked + .slider:before {
 }
 
 .config-control-btn:hover {
-    background-color: #90CAF9;
+    background-color: var(--md3-secondary, #90CAF9);
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
@@ -491,8 +516,8 @@ input:checked + .slider:before {
 #export-config-btn {
     margin-top: 12px;
     padding: 12px 28px;
-    background-color: #E3F2FD;
-    color: #0D47A1;
+    background-color: var(--md3-primaryContainer, #E3F2FD);
+    color: var(--md3-onPrimaryContainer, #0D47A1);
     border: none;
     border-radius: 24px;
     cursor: pointer;
@@ -505,7 +530,7 @@ input:checked + .slider:before {
 }
 
 #export-config-btn:hover {
-    background-color: #90CAF9;
+    background-color: var(--md3-secondary, #90CAF9);
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
@@ -521,9 +546,9 @@ input:checked + .slider:before {
     width: 100%;
     padding: 12px 16px;
     font-size: 1.2rem;
-    background-color: #FFFFFF;
-    color: #0D47A1;
-    border: 2px solid #BBDEFB;
+    background-color: var(--md3-surface, #FFFFFF);
+    color: var(--md3-onSurface, #0D47A1);
+    border: 2px solid var(--md3-outline, #BBDEFB);
     border-radius: 12px;
     cursor: pointer;
     appearance: none;
@@ -604,8 +629,8 @@ input:checked + .slider:before {
     position: absolute;
     right: 0;
     top: 0;
-    background-color: #E3F2FD;
-    color: #0D47A1;
+    background-color: var(--md3-primaryContainer, #E3F2FD);
+    color: var(--md3-onPrimaryContainer, #0D47A1);
     border: none;
     border-radius: 50%;
     width: 48px;
@@ -619,7 +644,7 @@ input:checked + .slider:before {
 }
 
 .info-toggle-btn:hover {
-    background-color: #90CAF9;
+    background-color: var(--md3-secondary, #90CAF9);
     transform: translateY(-1px);
 }
 
@@ -632,8 +657,8 @@ input:checked + .slider:before {
     right: 32px;
     bottom: 32px;
     z-index: 1200;
-    background: #fff;
-    border: 2px solid #BBDEFB;
+    background: var(--md3-surface, #fff);
+    border: 2px solid var(--md3-outline, #BBDEFB);
     border-radius: 20px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     padding: 24px;
@@ -939,18 +964,18 @@ input:checked + .slider:before {
 }
 
 #save-reminder-btn {
-    background-color: #1976D2;
-    color: #fff;
+    background-color: var(--md3-primary);
+    color: var(--md3-onPrimary);
 }
 
 #close-reminder-btn {
-    background-color: #E3F2FD;
-    color: #0D47A1;
+    background-color: var(--md3-primaryContainer);
+    color: var(--md3-onPrimaryContainer);
 }
 
 #stop-audio-btn {
-    background-color: #B3E5FC;
-    color: #01579B;
+    background-color: var(--md3-secondary);
+    color: var(--md3-onSecondary);
 }
 
 #save-reminder-btn:hover, #close-reminder-btn:hover, #stop-audio-btn:hover {
@@ -959,6 +984,61 @@ input:checked + .slider:before {
 }
 
 #stop-audio-btn:hover {
-    background-color: #81D4FA;
-    color: #01579B;
+    background-color: var(--md3-primary);
+    color: var(--md3-onPrimary);
+}
+
+/* Material You 颜色选择器样式 */
+.color-picker-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0 24px;
+    padding: 12px 16px;
+    background-color: var(--md3-primaryContainer);
+    border-radius: 12px;
+    border: 2px solid var(--md3-outline);
+    transition: all 0.2s ease;
+}
+
+.color-picker-container input[type="color"] {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 4px;
+    background: transparent;
+}
+
+.color-picker-container input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 2px;
+}
+
+.color-picker-container input[type="color"]::-webkit-color-swatch {
+    border: 2px solid var(--md3-outline);
+    border-radius: 6px;
+}
+
+.color-hint {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--md3-onPrimaryContainer);
+    font-family: 'Courier New', monospace;
+    min-width: 80px;
+    text-align: center;
+}
+
+#settings-modal-content select {
+    font-size: 16px;
+    padding: 12px 16px;
+    margin: 8px 0 24px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid var(--md3-outline);
+    border-radius: 12px;
+    background-color: var(--md3-surface);
+    color: var(--md3-onPrimaryContainer);
+    cursor: pointer;
+    transition: all 0.2s ease;
 }

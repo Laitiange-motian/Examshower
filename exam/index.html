@@ -8,6 +8,10 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Material Color Utilities CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@material/material-color-utilities"></script>
+    <script src="Scripts/colorSystem.js"></script>
+    <script src="Scripts/updateColors.js"></script>
 </head>
 <body>
     <div class="error-container">
@@ -157,6 +161,12 @@
                     <input type="checkbox" id="auto-toggle">
                     <span class="slider round"></span>
                 </label>
+                <!-- Material You 动态配色选择器 -->
+                <label for="material-you-color">Material You 主颜色:</label>
+                <div class="color-picker-container">
+                    <input type="color" id="material-you-color" name="material-you-color" value="#1976D2">
+                    <span class="color-hint" id="color-hint">#1976D2</span>
+                </div>
                 <!-- 新增数量控制区位置选择 -->
                 <label for="paper-count-position">数量控制区位置:</label>
                 <select id="paper-count-position">

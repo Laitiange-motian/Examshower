@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const themeSelect = document.getElementById("theme-select");
     const autoToggle = document.getElementById("auto-toggle");
     const paperCountPositionSelect = document.getElementById("paper-count-position");
+    const materialYouColorInput = document.getElementById("material-you-color");
+    const colorHint = document.getElementById("color-hint");
 
     let offsetTime = getCookie("offsetTime") || 0;
     let room = getCookie("room") || "";
@@ -22,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let theme = getCookie("theme") || "dark";
     let isAutoToggle = getCookie("autoToggle") || false;
     let paperCountPosition = getCookie("paperCountPosition") || "right-bottom";
+    let materialYouColor = localStorage.getItem("materialYouColor") || "#1976D2";
     let themeConfig = [];
 
     // 新增：检测url参数
@@ -67,6 +70,12 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             themeSelect.value = currentTheme;
             updateThemeLink();
+            
+            // 初始化Material You颜色系统
+            if (typeof initMaterialYouColors !== 'undefined') {
+                const isDarkTheme = !themeToggle.checked;
+                initMaterialYouColors(currentTheme, isDarkTheme);
+            }
         })
         .catch(error => errorSystem.show('加载主题配置失败: ' + error.message));
 
@@ -81,11 +90,39 @@ document.addEventListener("DOMContentLoaded", () => {
         paperCountPositionSelect.value = paperCountPosition;
     }
 
+    // 初始化 Material You 颜色选择器
+    if (materialYouColorInput) {
+        materialYouColorInput.value = materialYouColor;
+        if (colorHint) {
+            colorHint.textContent = materialYouColor;
+        }
+        // 当主题改变时，更新颜色选择器的可见性
+        updateColorPickerVisibility();
+    }
+
+    function updateColorPickerVisibility() {
+        const colorPickerContainer = document.querySelector('.color-picker-container');
+        if (colorPickerContainer) {
+            // 只有当主题是 md3 时，颜色选择器才可用
+            if (currentTheme === 'md3') {
+                colorPickerContainer.style.display = 'flex';
+            } else {
+                colorPickerContainer.style.display = 'none';
+            }
+        }
+    }
+
     settingsBtn.addEventListener("click", () => {
         try {
             offsetTimeInput.value = offsetTime;
             roomInput.value = room;
             zoomInput.value = zoomLevel;
+            if (materialYouColorInput) {
+                materialYouColorInput.value = materialYouColor;
+                if (colorHint) {
+                    colorHint.textContent = materialYouColor;
+                }
+            }
             settingsModal.style.display = "block";
             if (paperCountPositionSelect) paperCountPositionSelect.value = paperCountPosition;
         } catch (e) {
@@ -105,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    saveSettingsBtn.addEventListener("click", () => {
+    saveSettingsBtn.addEventListener("click", async () => {
         try {
             offsetTime = parseInt(offsetTimeInput.value);
             room = roomInput.value;
@@ -114,6 +151,18 @@ document.addEventListener("DOMContentLoaded", () => {
             currentTheme = themeSelect.value;
             isAutoToggle = autoToggle.checked;
             paperCountPosition = paperCountPositionSelect.value;
+            
+            // 保存 Material You 颜色配置
+            if (materialYouColorInput) {
+                materialYouColor = materialYouColorInput.value;
+                localStorage.setItem("materialYouColor", materialYouColor);
+                
+                // 如果当前主题是 md3，应用颜色方案
+                if (currentTheme === 'md3') {
+                    await colorSystem.applyMaterialYou(materialYouColor, !themeToggle.checked);
+                }
+            }
+            
             setCookie("offsetTime", offsetTime, 365);
             setCookie("room", room, 365);
             setCookie("zoomLevel", zoomLevel, 365);
@@ -124,6 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
             roomElem.textContent = room;
             document.body.style.zoom = zoomLevel;
             updateThemeLink();
+            updateColorPickerVisibility();
             settingsModal.classList.add("fade-out");
             setTimeout(() => {
                 settingsModal.style.display = "none";
@@ -138,14 +188,41 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    themeSelect.addEventListener("change", () => {
+    themeSelect.addEventListener("change", async () => {
         currentTheme = themeSelect.value;
         updateThemeLink();
+        updateColorPickerVisibility();
+        
+        // 如果切换到 md3，应用保存的颜色方案
+        if (currentTheme === 'md3') {
+            await colorSystem.applyMaterialYou(materialYouColor, !themeToggle.checked);
+        }
     });
 
-    themeToggle.addEventListener("change", () => {
+    themeToggle.addEventListener("change", async () => {
         updateThemeLink();
+        // 如果当前是 md3 主题，重新应用颜色方案以适应亮/暗模式
+        if (currentTheme === 'md3') {
+            await colorSystem.applyMaterialYou(materialYouColor, !themeToggle.checked);
+        }
     });
+
+    // Material You 颜色选择器监听
+    if (materialYouColorInput) {
+        materialYouColorInput.addEventListener("input", async (event) => {
+            const color = event.target.value;
+            if (colorHint) {
+                colorHint.textContent = color;
+            }
+            // 实时预览颜色效果（仅在 md3 主题下）
+            if (currentTheme === 'md3') {
+                // 保存颜色选择到 localStorage
+                localStorage.setItem("materialYouColor", color);
+                materialYouColor = color;
+                await colorSystem.applyMaterialYou(color, !themeToggle.checked);
+            }
+        });
+    }
 
     configFileInput.addEventListener("change", (event) => {
         if (configUrl) return; // 禁止导入
@@ -213,7 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 新增：点击弹窗外区域自动保存并关闭
-    window.addEventListener("click", function(event) {
+    window.addEventListener("click", async function(event) {
         if (settingsModal.style.display === "block" && event.target === settingsModal) {
             // 自动保存设置
             try {
@@ -224,6 +301,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentTheme = themeSelect.value;
                 isAutoToggle = autoToggle.checked;
                 paperCountPosition = paperCountPositionSelect.value;
+                
+                // 保存 Material You 颜色配置
+                if (materialYouColorInput) {
+                    materialYouColor = materialYouColorInput.value;
+                    localStorage.setItem("materialYouColor", materialYouColor);
+                    
+                    // 如果当前主题是 md3，应用颜色方案
+                    if (currentTheme === 'md3') {
+                        await colorSystem.applyMaterialYou(materialYouColor, !themeToggle.checked);
+                    }
+                }
+                
                 setCookie("offsetTime", offsetTime, 365);
                 setCookie("room", room, 365);
                 setCookie("zoomLevel", zoomLevel, 365);
@@ -234,6 +323,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 roomElem.textContent = room;
                 document.body.style.zoom = zoomLevel;
                 updateThemeLink();
+                updateColorPickerVisibility();
                 settingsModal.classList.add("fade-out");
                 setTimeout(() => {
                     settingsModal.style.display = "none";
