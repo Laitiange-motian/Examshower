@@ -368,8 +368,8 @@ tr:hover {
     bottom: 24px;
     left: 50%;
     transform: translateX(-50%);
-    background: #0D223A;
-    color: #90CAF9;
+    background: var(--md3-background);
+    color: var(--md3-secondary);
     padding: 16px 24px;
     border-radius: 16px;
     display: none;
@@ -392,7 +392,7 @@ tr:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #1976D2;
+    background-color: var(--md3-primaryContainer);
     transition: .3s;
     border-radius: 16px;
 }
@@ -404,31 +404,31 @@ tr:hover {
     width: 24px;
     left: 4px;
     bottom: 4px;
-    background-color: #E3F2FD;
+    background-color: var(--md3-onPrimaryContainer);
     transition: .3s;
     border-radius: 50%;
 }
 
 input:checked + .slider {
-    background-color: #90CAF9;
+    background-color: var(--md3-secondary);
 }
 
 input:checked + .slider:before {
     transform: translateX(20px);
-    background-color: #0D223A;
+    background-color: var(--md3-background);
 }
 
 .config-file-container {
     margin: 24px 0;
     padding: 24px;
-    border: 2px solid #1976D2;
+    border: 2px solid var(--md3-primary);
     border-radius: 20px;
-    background-color: #102840;
+    background-color: var(--md3-surface);
     transition: all 0.2s ease;
 }
 
 .config-file-container:hover {
-    border-color: #90CAF9;
+    border-color: var(--md3-secondary);
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
@@ -437,10 +437,10 @@ input:checked + .slider:before {
     width: auto;
     box-sizing: border-box;
     padding: 12px;
-    border: 2px dashed #1976D2;
+    border: 2px dashed var(--md3-primary);
     border-radius: 16px;
-    background-color: #183A5A;
-    color: #E3F2FD;
+    background-color: var(--md3-surfaceVariant);
+    color: var(--md3-onSurface);
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -448,8 +448,8 @@ input:checked + .slider:before {
 .config-file-container input[type="file"]::-webkit-file-upload-button {
     padding: 8px 16px;
     margin-right: 12px;
-    background-color: #1976D2;
-    color: #E3F2FD;
+    background-color: var(--md3-primary);
+    color: var(--md3-onPrimary);
     border: none;
     border-radius: 12px;
     cursor: pointer;
@@ -457,21 +457,21 @@ input:checked + .slider:before {
 }
 
 .config-file-container input[type="file"]::-webkit-file-upload-button:hover {
-    background-color: #1565C0;
+    background-color: var(--md3-primaryContainer);
 }
 
 .file-hint {
     margin-top: 12px;
     font-size: 14px;
-    color: #90CAF9;
+    color: var(--md3-secondary);
     line-height: 1.5;
 }
 
 .config-control-btn {
     margin-top: 20px;
     padding: 12px 28px;
-    background-color: #1976D2;
-    color: #E3F2FD;
+    background-color: var(--md3-primary);
+    color: var(--md3-onPrimary);
     border: none;
     border-radius: 24px;
     cursor: pointer;
@@ -484,7 +484,7 @@ input:checked + .slider:before {
 }
 
 .config-control-btn:hover {
-    background-color: #1565C0;
+    background-color: var(--md3-primaryContainer);
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
@@ -493,8 +493,8 @@ input:checked + .slider:before {
 #export-config-btn {
     margin-top: 12px;
     padding: 12px 28px;
-    background-color: #1976D2;
-    color: #E3F2FD;
+    background-color: var(--md3-primary);
+    color: var(--md3-onPrimary);
     border: none;
     border-radius: 24px;
     cursor: pointer;
@@ -507,7 +507,7 @@ input:checked + .slider:before {
 }
 
 #export-config-btn:hover {
-    background-color: #1565C0;
+    background-color: var(--md3-primaryContainer);
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(208,188,255,0.15);
 }
@@ -523,9 +523,9 @@ input:checked + .slider:before {
     width: 100%;
     padding: 12px 16px;
     font-size: 1.2rem;
-    background-color: #183A5A;
-    color: #E3F2FD;
-    border: 2px solid #1976D2;
+    background-color: var(--md3-surfaceVariant);
+    color: var(--md3-onSurface);
+    border: 2px solid var(--md3-primary);
     cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
@@ -536,30 +536,30 @@ input:checked + .slider:before {
 }
 
 #theme-select:hover {
-    background-color: #1565C0;
-    border-color: #90CAF9;
+    background-color: var(--md3-primaryContainer);
+    border-color: var(--md3-secondary);
 }
 
 #theme-select:focus {
     outline: none;
-    border-color: #90CAF9;
-    background-color: #1565C0;
+    border-color: var(--md3-secondary);
+    background-color: var(--md3-primaryContainer);
 }
 
 #theme-select option {
-    background-color: #183A5A;
-    color: #E3F2FD;
+    background-color: var(--md3-surfaceVariant);
+    color: var(--md3-onSurface);
     padding: 12px;
 }
 
 #theme-select option:hover,
 #theme-select option:focus {
-    background-color: #1565C0;
+    background-color: var(--md3-primaryContainer);
 }
 
 .theme-toggle-container label {
     font-size: 16px;
-    color: #E3F2FD;
+    color: var(--md3-onSurface);
     margin-bottom: 8px;
 }
 
@@ -569,7 +569,7 @@ input:checked + .slider:before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(13, 34, 58, 0.95);
+    background-color: var(--md3-modal-overlay);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -592,13 +592,13 @@ input:checked + .slider:before {
 
 .reminder-title {
     font-size: 5rem;
-    color: #90CAF9;
+    color: var(--md3-secondary);
     margin-bottom: 2rem;
 }
 
 .reminder-subtitle {
     font-size: 3rem;
-    color: #1976D2;
+    color: var(--md3-primary);
 }
 
 @keyframes fadeIn {
@@ -680,9 +680,9 @@ input:checked + .slider:before {
     padding: 5px;
     font-size: 2rem;
     text-align: center;
-    background-color: #183A5A;
-    color: #E3F2FD;
-    border: 2px solid #1976D2;
+    background-color: var(--md3-surfaceVariant);
+    color: var(--md3-onSurface);
+    border: 2px solid var(--md3-primary);
     border-radius: 8px;
 }
 
@@ -707,14 +707,14 @@ input:checked + .slider:before {
     height: 36px;
     border: none;
     border-radius: 50%;
-    background-color: #1565C0;
-    color: #E3F2FD;
+    background-color: var(--md3-primaryContainer);
+    color: var(--md3-onPrimaryContainer);
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .count-btn:hover {
-    background-color: #1976D2;
+    background-color: var(--md3-primary);
     transform: translateY(-1px);
 }
 
@@ -730,8 +730,8 @@ input:checked + .slider:before {
     position: absolute;
     right: 0;
     top: 0;
-    background-color: #1565C0;
-    color: #E3F2FD;
+    background-color: var(--md3-primaryContainer);
+    color: var(--md3-onPrimaryContainer);
     border: none;
     border-radius: 50%;
     width: 48px;
@@ -745,7 +745,7 @@ input:checked + .slider:before {
 }
 
 .info-toggle-btn:hover {
-    background-color: #1976D2;
+    background-color: var(--md3-primary);
     transform: translateY(-1px);
 }
 
@@ -775,7 +775,7 @@ input:checked + .slider:before {
     max-width: 95vw;
     max-height: 80vh;
     overflow-y: auto;
-    background: #102840;
+    background: var(--md3-surface);
     border-radius: 28px;
     box-shadow: 0 8px 24px rgba(25,118,210,0.32);
     padding: 32px 48px 32px 32px;
@@ -786,7 +786,7 @@ input:checked + .slider:before {
     margin-bottom: 24px;
     font-size: 24px;
     font-weight: 400;
-    color: #E3F2FD;
+    color: var(--md3-onSurface);
 }
 
 .reminder-table {
@@ -794,7 +794,7 @@ input:checked + .slider:before {
     border-collapse: separate;
     border-spacing: 0;
     margin-bottom: 24px;
-    background: #183A5A;
+    background: var(--md3-surfaceVariant);
     border-radius: 16px;
     overflow: hidden;
     table-layout: fixed;
@@ -804,14 +804,14 @@ input:checked + .slider:before {
     padding: 16px 8px;
     font-size: 1.4rem;
     text-align: center;
-    border-bottom: 1px solid #1976D2;
+    border-bottom: 1px solid var(--md3-outline);
     vertical-align: middle;
     word-break: break-all;
 }
 
 .reminder-table th {
-    background: #1976D2;
-    color: #E3F2FD;
+    background: var(--md3-primary);
+    color: var(--md3-onPrimary);
     font-weight: 500;
 }
 
@@ -841,8 +841,8 @@ input:checked + .slider:before {
 .reminder-table .action-btn {
     padding: 8px 18px;
     border-radius: 16px;
-    background: #1565C0;
-    color: #E3F2FD;
+    background: var(--md3-primaryContainer);
+    color: var(--md3-onPrimaryContainer);
     border: none;
     font-size: 1.1rem;
     cursor: pointer;
@@ -852,14 +852,14 @@ input:checked + .slider:before {
 }
 
 .reminder-table .action-btn:hover {
-    background: #1976D2;
+    background: var(--md3-primary);
 }
 
 .reminder-btn {
     padding: 8px 18px;
     border-radius: 16px;
-    background: #37474F;
-    color: #90CAF9;
+    background: var(--md3-surfaceVariant);
+    color: var(--md3-secondary);
     border: none;
     font-size: 1.1rem;
     cursor: pointer;
@@ -869,45 +869,45 @@ input:checked + .slider:before {
 }
 
 .reminder-btn:hover {
-    background: #1976D2;
+    background: var(--md3-primaryContainer);
 }
 
 .reminder-select {
     width: 100%;
     padding: 8px 12px;
     font-size: 1.1rem;
-    border: 2px solid #1976D2;
+    border: 2px solid var(--md3-primary);
     border-radius: 10px;
-    background: #183A5A;
-    color: #E3F2FD;
+    background: var(--md3-surfaceVariant);
+    color: var(--md3-onSurface);
     transition: border-color 0.2s;
     outline: none;
 }
 
 .reminder-select:focus {
-    border-color: #90CAF9;
+    border-color: var(--md3-secondary);
 }
 
 .reminder-time-input {
     width: 80px;
     padding: 8px 12px;
     font-size: 1.1rem;
-    border: 2px solid #1976D2;
+    border: 2px solid var(--md3-primary);
     border-radius: 10px;
-    background: #183A5A;
-    color: #E3F2FD;
+    background: var(--md3-surfaceVariant);
+    color: var(--md3-onSurface);
     transition: border-color 0.2s;
     outline: none;
     text-align: center;
 }
 
 .reminder-time-input:focus {
-    border-color: #90CAF9;
+    border-color: var(--md3-secondary);
 }
 
 #reminder-modal-content .button-group {
-    background: #102840;
-    border-top: 1px solid #1976D2;
+    background: var(--md3-surface);
+    border-top: 1px solid var(--md3-outline);
     margin-top: 32px;
     padding: 16px 0 0 0;
     display: flex;

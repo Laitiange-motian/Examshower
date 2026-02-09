@@ -114,6 +114,11 @@ class MaterialYouColorSystem {
         };
 
         if (isDark) {
+            // Dark mode colors - 使用源色的高lightness值作为文字颜色
+            const lightTextColor = createColor(85);  // 浅蓝色，用于暗色背景上的文字
+            const mediumColor = createColor(55);     // 中等颜色，用于 outline
+            const darkBgColor = createColor(15);     // 深蓝色，用于 background
+            
             return {
                 primary: createColor(80),
                 onPrimary: createColor(20),
@@ -127,14 +132,14 @@ class MaterialYouColorSystem {
                 onTertiary: createColor(20),
                 tertiaryContainer: createColor(30),
                 onTertiaryContainer: createColor(90),
-                background: '#121212',
-                onBackground: '#E1E1E1',
-                surface: '#1A1A1A',
-                onSurface: '#E1E1E1',
-                surfaceVariant: '#49454F',
-                onSurfaceVariant: '#CAC7D0',
-                outline: '#938F99',
-                outlineVariant: '#49454F',
+                background: darkBgColor,              // ← 基于源色的深蓝色背景
+                onBackground: lightTextColor,        // ← 基于源色的浅蓝色文字
+                surface: darkBgColor,                // ← 基于源色的深蓝色surface
+                onSurface: lightTextColor,           // ← 基于源色的浅蓝色文字
+                surfaceVariant: createColor(25),     // ← 深蓝色变体
+                onSurfaceVariant: lightTextColor,    // ← 浅蓝色
+                outline: mediumColor,                // ← 基于源色的中等蓝色
+                outlineVariant: createColor(30),     // ← 深蓝色变体
                 error: '#F2B8B5',
                 onError: '#601410',
                 errorContainer: '#8C1D18',
