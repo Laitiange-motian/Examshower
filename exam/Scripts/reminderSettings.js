@@ -230,8 +230,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // 新增：同步启用提醒总开关
     const reminderEnableToggle = document.getElementById('reminder-enable-toggle');
     const reminderEnableCookie = getCookie("reminderEnable");
-    reminderEnableToggle.checked = reminderEnableCookie === null ? true : (reminderEnableCookie === "true");
-
+    // 若没有 cookie，关闭预设（false）
+    reminderEnableToggle.checked = reminderEnableCookie === null ? false : (reminderEnableCookie === "true");
     // 切换开关时禁用/启用表格和导出按钮
     function updateReminderTableState() {
         const disabled = !reminderEnableToggle.checked;

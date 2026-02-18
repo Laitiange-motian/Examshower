@@ -419,7 +419,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadPaperInfo();
 
     function updatePaperCountPanelPosition() {
-        const pos = getCookie("paperCountPosition") || "right-bottom";
+        const pos = getCookie("paperCountPosition") || "left-info";
         const panel = document.getElementById("paper-count-panel");
         const leftInfo = document.getElementById("paper-info");
         const rightColumn = document.querySelector(".right-column");
